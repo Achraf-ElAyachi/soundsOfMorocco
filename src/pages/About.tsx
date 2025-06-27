@@ -49,7 +49,7 @@ const About: React.FC = () => {
         {/* Mission & Vision */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Mission Statement */}
-          <div className="bg-white rounded-2xl shadow-sm p-8 border border-morocco-red-100">
+          <div className="bg-[#f4debd] rounded-2xl shadow-sm p-8 border border-morocco-red-100">
             <div className="flex items-center mb-6">
               <div className="w-16 h-16 bg-morocco-red-100 rounded-full flex items-center justify-center mr-4">
                 <Target className="text-morocco-red-600" size={32} />
@@ -65,7 +65,7 @@ const About: React.FC = () => {
           </div>
 
           {/* Vision Statement */}
-          <div className="bg-white rounded-2xl shadow-sm p-8 border border-morocco-blue-100">
+          <div className="bg-[#f4debd] rounded-2xl shadow-sm p-8 border border-morocco-blue-100">
             <div className="flex items-center mb-6">
               <div className="w-16 h-16 bg-morocco-blue-100 rounded-full flex items-center justify-center mr-4">
                 <Eye className="text-morocco-blue-600" size={32} />
@@ -92,7 +92,7 @@ const About: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
+              <div key={index} className="bg-[#f4debd] rounded-xl shadow-sm p-6 hover:shadow-md transition-shadow">
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
                     {value.icon}
@@ -138,7 +138,7 @@ const About: React.FC = () => {
 
         {/* Story Section */}
         <section className="mb-16">
-          <div className="bg-white rounded-2xl shadow-sm p-8">
+          <div className="bg-[#f4debd] rounded-2xl shadow-sm p-8">
             <h2 className="text-3xl font-display font-bold text-gray-900 mb-6 text-center">
               Our Story
             </h2>
@@ -180,7 +180,7 @@ const About: React.FC = () => {
             preserving Morocco's musical heritage for future generations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-white text-morocco-red-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors">
+            <button className="px-8 py-3 bg-[#f4debd] text-morocco-red-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors">
               Support Our Projects
             </button>
             <button className="px-8 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-morocco-red-600 transition-colors">

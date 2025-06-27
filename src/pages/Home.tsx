@@ -1,6 +1,13 @@
 import React from 'react';
 import { ArrowRight, Users, Target, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import leaderImg from '../assets/Team/leader.jpg';
+import imaneImg from '../assets/Team/imane.jpg';
+import mounaImg from '../assets/Team/mouna.jpg';
+import yassineImg from '../assets/Team/yassine.jpg';
+import younessImg from '../assets/Team/youness.jpg';
+import jalalImg from '../assets/Team/jalal.jpg';
+import verticalLogoWhite from '../assets/Vertical_Logo_White.png';
 
 const Home: React.FC = () => {
   const partners = [
@@ -14,31 +21,45 @@ const Home: React.FC = () => {
 
   const teamMembers = [
     {
-      name: "Amina El-Fassi",
+      name: "Yasser",
       role: "Project Leader",
       bio: "Ethnomusicologist and cultural preservationist with 15 years of experience documenting Moroccan musical traditions.",
-      image: "https://images.pexels.com/photos/3783725/pexels-photo-3783725.jpeg?auto=compress&cs=tinysrgb&w=400",
+      image: leaderImg,
       isLeader: true,
     },
     {
-      name: "Youssef Benali",
-      role: "Audio Engineer",
-      bio: "Sound recording specialist focused on traditional instruments and ambient recording techniques.",
-      image: "https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=400",
+      name: "Imane",
+      role: "Team Member",
+      bio: "Team member passionate about Moroccan music and culture.",
+      image: imaneImg,
       isLeader: false,
     },
     {
-      name: "Fatima Cherkaoui",
-      role: "Cultural Researcher",
-      bio: "Anthropologist specializing in North African musical traditions and oral history preservation.",
-      image: "https://images.pexels.com/photos/3783763/pexels-photo-3783763.jpeg?auto=compress&cs=tinysrgb&w=400",
+      name: "Mouna",
+      role: "Team Member",
+      bio: "Team member passionate about Moroccan music and culture.",
+      image: mounaImg,
       isLeader: false,
     },
     {
-      name: "Omar Alaoui",
-      role: "Documentary Filmmaker",
-      bio: "Visual storyteller capturing the essence of Moroccan musical culture through cinematic narratives.",
-      image: "https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=400",
+      name: "Yassine",
+      role: "Team Member",
+      bio: "Team member passionate about Moroccan music and culture.",
+      image: yassineImg,
+      isLeader: false,
+    },
+    {
+      name: "Youness",
+      role: "Team Member",
+      bio: "Team member passionate about Moroccan music and culture.",
+      image: younessImg,
+      isLeader: false,
+    },
+    {
+      name: "Jalal",
+      role: "Team Member",
+      bio: "Team member passionate about Moroccan music and culture.",
+      image: jalalImg,
       isLeader: false,
     },
   ];
@@ -46,13 +67,10 @@ const Home: React.FC = () => {
   return (
     <div className="animate-fade-in">
       {/* Hero Section */}
-      <section className="relative text-white">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+      <section className="relative text-white" style={{ backgroundColor: 'rgb(51, 51, 255)' }}>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-display font-bold mb-6">
-              Sounds of Morocco
-            </h1>
+            <img src={verticalLogoWhite} alt="Sounds of Morocco Logo" className="mx-auto mb-6 w-40 md:w-56 lg:w-64" />
             <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
               A cultural journey through Morocco's rich musical heritage, documenting and preserving 
               the authentic sounds that have shaped our nation's identity across generations.
@@ -69,7 +87,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Project Vision */}
-      <section className="py-16 bg-white">
+      <section className="py-16" style={{ backgroundColor: '#f4debd' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-display font-bold text-gray-900 mb-4">
@@ -117,7 +135,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Meet the Team */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16" style={{ backgroundColor: '#f4debd' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-display font-bold text-gray-900 mb-4">
@@ -130,10 +148,10 @@ const Home: React.FC = () => {
 
           {/* Project Leader */}
           <div className="mb-12">
-            <div className="bg-gradient-to-r from-morocco-red-50 to-morocco-ochre-50 rounded-2xl p-8">
+            <div className="rounded-2xl p-8" style={{ background: 'linear-gradient(90deg, #e2d6c2 0%, #b8b0a1 100%)' }}>
               <div className="flex flex-col lg:flex-row items-center gap-8">
                 <img
-                  src={teamMembers[0].image}
+                  src={leaderImg}
                   alt={teamMembers[0].name}
                   className="w-32 h-32 rounded-full object-cover border-4 border-morocco-red-200"
                 />
@@ -154,7 +172,7 @@ const Home: React.FC = () => {
           {/* Other Team Members */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.slice(1).map((member, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-6 text-center">
+              <div key={index} className="bg-[#f4debd] rounded-xl shadow-sm hover:shadow-2xl transition-all duration-500 hover:scale-105 transform will-change-transform p-6 text-center">
                 <img
                   src={member.image}
                   alt={member.name}
@@ -170,7 +188,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Partners Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16" style={{ backgroundColor: '#f4debd' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-display font-bold text-gray-900 mb-4">
@@ -185,7 +203,7 @@ const Home: React.FC = () => {
             {partners.map((partner, index) => (
               <div
                 key={index}
-                className="bg-gray-50 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all hover:scale-105"
+                className="bg-[#f4debd] rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all hover:scale-105"
               >
                 <div className="text-4xl mb-3">{partner.logo}</div>
                 <h3 className="font-semibold text-gray-900">{partner.name}</h3>

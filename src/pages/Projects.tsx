@@ -112,7 +112,7 @@ const Projects: React.FC = () => {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-6 border border-gray-100"
+                className="bg-[#f4debd] rounded-xl shadow-sm hover:shadow-md transition-shadow p-6 border border-gray-100"
               >
                 <div className="flex items-start justify-between mb-3">
                   <div>

@@ -67,7 +67,7 @@ const Donations: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Donation Form */}
-          <div className="bg-white rounded-2xl shadow-lg p-8">
+          <div className="bg-[#f4debd] rounded-2xl shadow-lg p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Make a Donation</h2>
             
             {/* Amount Selection */}
@@ -137,7 +137,7 @@ const Donations: React.FC = () => {
             </div>
 
             {/* Donation Summary */}
-            <div className="bg-gray-50 rounded-lg p-4 mb-6">
+            <div className="bg-[#f4debd] rounded-lg p-4 mb-6">
               <div className="flex justify-between items-center">
                 <span className="font-medium text-gray-700">Donation Amount:</span>
                 <span className="text-2xl font-bold text-morocco-red-600">
@@ -170,7 +170,7 @@ const Donations: React.FC = () => {
             
             <div className="space-y-6 mb-8">
               {impactAreas.map((area, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-sm p-6">
+                <div key={index} className="bg-[#f4debd] rounded-xl shadow-sm p-6">
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0">
                       {area.icon}
@@ -207,11 +207,11 @@ const Donations: React.FC = () => {
 
             {/* Recent Impact Stats */}
             <div className="mt-8 grid grid-cols-2 gap-4">
-              <div className="bg-white rounded-lg p-4 text-center shadow-sm">
+              <div className="bg-[#f4debd] rounded-lg p-4 text-center shadow-sm">
                 <div className="text-2xl font-bold text-morocco-red-600">127</div>
                 <div className="text-sm text-gray-600">Artists Supported</div>
               </div>
-              <div className="bg-white rounded-lg p-4 text-center shadow-sm">
+              <div className="bg-[#f4debd] rounded-lg p-4 text-center shadow-sm">
                 <div className="text-2xl font-bold text-morocco-ochre-600">43</div>
                 <div className="text-sm text-gray-600">Projects Completed</div>
               </div>

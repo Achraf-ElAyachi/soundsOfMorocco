@@ -99,7 +99,7 @@ const Events: React.FC = () => {
           <h2 className="text-3xl font-display font-bold text-gray-900 mb-8">Upcoming Events</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
             {upcomingEvents.map((event) => (
-              <div key={event.id} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+              <div key={event.id} className="bg-[#f4debd] rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden">
                 <img
                   src={event.image}
                   alt={event.title}
@@ -154,7 +154,7 @@ const Events: React.FC = () => {
           <h2 className="text-3xl font-display font-bold text-gray-900 mb-8">Past Events Archive</h2>
           <div className="space-y-6">
             {pastEvents.map((event) => (
-              <div key={event.id} className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-6">
+              <div key={event.id} className="bg-[#f4debd] rounded-xl shadow-sm hover:shadow-md transition-shadow p-6">
                 <div className="flex flex-col md:flex-row gap-6">
                   <img
                     src={event.image}
