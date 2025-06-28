@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, Clock, MapPin, Users, ExternalLink } from 'lucide-react';
+import IconWhite from '../assets/Icon_White.png';
 
 const Events: React.FC = () => {
   const upcomingEvents = [
@@ -84,9 +85,12 @@ const Events: React.FC = () => {
   return (
     <div className="py-8">
       {/* Header */}
-      <div className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16">
+      <div className="text-white py-16" style={{ backgroundColor: '#3333ff' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-display font-bold mb-4">Events</h1>
+          <h1 className="text-4xl font-display font-bold mb-4 flex items-center justify-center gap-4">
+            <img src={IconWhite} alt="Events Icon" className="h-10 w-10 inline-block" />
+            Events
+          </h1>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
             Join us for recording sessions, workshops, and cultural events celebrating Morocco's musical heritage.
           </p>
@@ -96,10 +100,17 @@ const Events: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Upcoming Events */}
         <section className="mb-16">
-          <h2 className="text-3xl font-display font-bold text-gray-900 mb-8">Upcoming Events</h2>
+          <h2 className="flex items-center gap-3 text-4xl font-extrabold tracking-wide text-gray-900 mb-8 drop-shadow-sm">
+            <span className="inline-block w-2 h-8 rounded bg-[#3333ff] mr-2"></span>
+            Upcoming Events
+          </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
             {upcomingEvents.map((event) => (
-              <div key={event.id} className="bg-[#f4debd] rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+              <div key={event.id} className="relative bg-[#f4debd] rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden animate-fade-in border-l-4 border-[#3333ff]">
+                {/* Date Badge Overlay */}
+                <div className="absolute top-4 left-4 bg-[#3333ff] text-white px-3 py-1 rounded-full text-xs font-bold z-10 shadow">
+                  {new Date(event.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                </div>
                 <img
                   src={event.image}
                   alt={event.title}
@@ -107,22 +118,15 @@ const Events: React.FC = () => {
                 />
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${getEventTypeColor(event.type || '')}`}>
-                      {event.type}
-                    </span>
+                    <span className={`px-3 py-1 rounded-full text-sm font-medium ${getEventTypeColor(event.type || '')}`}>{event.type}</span>
                   </div>
-                  
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">{event.title}</h3>
-                  
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">{event.title}</h3>
+                  {/* Divider */}
+                  <div className="border-b border-gray-200 my-3"></div>
                   <div className="space-y-2 mb-4 text-sm text-gray-600">
                     <div className="flex items-center">
                       <Calendar size={16} className="mr-2 text-morocco-ochre-600" />
-                      {new Date(event.date).toLocaleDateString('en-US', { 
-                        weekday: 'long',
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
-                      })}
+                      {new Date(event.date).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
                     </div>
                     <div className="flex items-center">
                       <Clock size={16} className="mr-2 text-morocco-ochre-600" />
@@ -137,12 +141,12 @@ const Events: React.FC = () => {
                       {event.artists.join(', ')}
                     </div>
                   </div>
-                  
-                  <p className="text-gray-600 text-sm mb-4">{event.description}</p>
-                  
-                  <button className="w-full bg-morocco-red-600 hover:bg-morocco-red-700 text-white font-medium py-2 px-4 rounded-lg transition-colors">
-                    Learn More
-                  </button>
+                  <p className="text-gray-700 text-base mb-4 leading-relaxed">{event.description}</p>
+                  <div className="flex justify-end">
+                    <button className="bg-morocco-red-600 hover:bg-morocco-red-700 text-white font-medium py-2 px-4 rounded-lg transition-colors">
+                      Learn More
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -151,15 +155,20 @@ const Events: React.FC = () => {
 
         {/* Past Events Archive */}
         <section>
-          <h2 className="text-3xl font-display font-bold text-gray-900 mb-8">Past Events Archive</h2>
+          <h2 className="flex items-center gap-3 text-4xl font-extrabold tracking-wide text-gray-900 mb-8 drop-shadow-sm">
+            <span className="inline-block w-2 h-8 rounded bg-[#3333ff] mr-2"></span>
+            Past Events Archive
+          </h2>
           <div className="space-y-6">
             {pastEvents.map((event) => (
-              <div key={event.id} className="bg-[#f4debd] rounded-xl shadow-sm hover:shadow-md transition-shadow p-6">
+              <div key={event.id} className="relative bg-[#f4debd] rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 border-l-4 border-gray-400 overflow-hidden animate-fade-in">
+                {/* Past Badge */}
+                <div className="absolute top-4 left-4 bg-gray-400 text-white px-3 py-1 rounded-full text-xs font-bold z-10 shadow">Past</div>
                 <div className="flex flex-col md:flex-row gap-6">
                   <img
                     src={event.image}
                     alt={event.title}
-                    className="w-full md:w-48 h-32 object-cover rounded-lg"
+                    className="w-full md:w-48 h-32 object-cover rounded-lg filter grayscale"
                   />
                   <div className="flex-1">
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
@@ -169,11 +178,7 @@ const Events: React.FC = () => {
                       <div className="text-sm text-gray-500">
                         <div className="flex items-center mb-1">
                           <Calendar size={14} className="mr-1" />
-                          {new Date(event.date).toLocaleDateString('en-US', { 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
-                          })}
+                          {new Date(event.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                         </div>
                         <div className="flex items-center">
                           <MapPin size={14} className="mr-1" />
@@ -181,9 +186,9 @@ const Events: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                    
+                    {/* Divider */}
+                    <div className="border-b border-gray-200 my-3"></div>
                     <p className="text-gray-600 mb-4">{event.summary}</p>
-                    
                     <div className="flex flex-wrap gap-2">
                       {event.media.map((mediaType, index) => (
                         <button

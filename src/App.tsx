@@ -7,6 +7,7 @@ import Events from './pages/Events';
 import Donations from './pages/Donations';
 import Shop from './pages/Shop';
 import About from './pages/About';
+import ProjectDetails from './pages/ProjectDetails';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/donations" element={<Donations />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/about" element={<About />} />
+          <Route path="/project-details/:id" element={<ProjectDetails />} />
         </Routes>
       </Layout>
     </Router>

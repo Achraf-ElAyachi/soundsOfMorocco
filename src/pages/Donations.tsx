@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Heart, Shield, Users, Target, CreditCard, DollarSign } from 'lucide-react';
+import IconWhite from '../assets/Icon_White.png';
 
 const Donations: React.FC = () => {
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
@@ -54,10 +55,12 @@ const Donations: React.FC = () => {
   return (
     <div className="py-8">
       {/* Header */}
-      <div className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16">
+      <div className="text-white py-16" style={{ backgroundColor: '#3333ff' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Heart className="mx-auto mb-4 text-morocco-ochre-400" size={48} />
-          <h1 className="text-4xl font-display font-bold mb-4">Support Our Mission</h1>
+          <h1 className="text-4xl font-display font-bold mb-4 flex items-center justify-center gap-4">
+            <img src={IconWhite} alt="Donations Icon" className="h-10 w-10 inline-block" />
+            Support Our Mission
+          </h1>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
             Your donation helps preserve Morocco's musical heritage and supports local artists who keep our traditions alive.
           </p>

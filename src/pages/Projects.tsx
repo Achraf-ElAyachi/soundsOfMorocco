@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { MapPin, Play, Music, Calendar } from 'lucide-react';
+import IconWhite from '../assets/Icon_White.png';
+import IconRed from '../assets/Icon_Red.png';
+import { Link } from 'react-router-dom';
 
 const Projects: React.FC = () => {
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
@@ -81,11 +84,14 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <div className="py-8">
+    <div className="py-8" >
       {/* Header */}
-      <div className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16">
+      <div className="text-white py-16" style={{ backgroundColor: '#3333ff' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-display font-bold mb-4">Our Projects</h1>
+          <h1 className="text-4xl font-display font-bold mb-4 flex items-center justify-center gap-4">
+            <img src={IconWhite} alt="Projects Icon" className="h-10 w-10 inline-block" />
+            Our Projects
+          </h1>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
             Documenting Morocco's diverse musical landscape across all regions, 
             from traditional folk songs to contemporary expressions.
@@ -112,33 +118,51 @@ const Projects: React.FC = () => {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="bg-[#f4debd] rounded-xl shadow-sm hover:shadow-md transition-shadow p-6 border border-gray-100"
+                className="relative bg-[#f4debd] rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 p-8 border border-gray-100 overflow-hidden"
               >
-                <div className="flex items-start justify-between mb-3">
+                {/* Left Accent Bar */}
+                <div className="absolute left-0 top-6 h-16 w-1 bg-[#3333ff] rounded-r"></div>
+                <div className="flex items-center justify-between mb-3">
                   <div>
-                    <span className="text-sm text-morocco-ochre-600 font-medium">{project.region}</span>
-                    <h3 className="text-xl font-semibold text-gray-900">{project.title}</h3>
+                    <span className="text-sm text-morocco-ochre-600 font-medium mr-2">{project.region}</span>
+                    {/* City Tag */}
+                    <span className="inline-block bg-[#3333ff] text-white text-xs px-2 py-0.5 rounded-full align-middle">{project.city}</span>
+                    <h3 className="text-2xl font-bold text-gray-900 mt-2 mb-1 flex items-center gap-2">
+                      {project.title}
+                    </h3>
                   </div>
-                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(project.status)}`}>
+                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(project.status)} animate-fade-in`}> 
                     {project.status}
                   </span>
                 </div>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                <div className="flex items-center text-sm text-gray-500 mb-4">
-                  <Calendar size={16} className="mr-2" />
-                  {new Date(project.date).toLocaleDateString('en-US', { 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric' 
-                  })}
+                {/* Divider */}
+                <div className="border-b border-gray-200 my-3"></div>
+                <p className="text-gray-700 mb-4 text-base leading-relaxed">{project.description}</p>
+                <div className="flex items-center text-sm text-gray-500 mb-4 gap-4">
+                  {/* Date Icon */}
+                  <div className="flex items-center gap-1">
+                    <Calendar size={16} className="mr-1" />
+                    {new Date(project.date).toLocaleDateString('en-US', { 
+                      year: 'numeric', 
+                      month: 'long', 
+                      day: 'numeric' 
+                    })}
+                  </div>
+                  {/* Location Icon */}
+                  <div className="flex items-center gap-1">
+                    <MapPin size={16} className="mr-1" />
+                    {project.city}
+                  </div>
                 </div>
-                <button
-                  onClick={() => setSelectedRegion(project.id.toString())}
-                  className="text-morocco-red-600 hover:text-morocco-red-700 font-medium flex items-center"
-                >
-                  View Details
-                  <Play size={16} className="ml-2" />
-                </button>
+                <div className="flex justify-end">
+                  <Link
+                    to={`/project-details/${project.id}`}
+                    className="text-morocco-red-600 hover:text-morocco-red-700 font-medium flex items-center"
+                  >
+                    View Details
+                    <img src={IconRed} alt="View Details" className="ml-2 h-4 w-4 inline-block" />
+                  </Link>
+                </div>
               </div>
             ))}
           </div>

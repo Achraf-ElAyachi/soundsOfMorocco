@@ -1,5 +1,6 @@
 import React from 'react';
 import { Target, Eye, Heart, Users, Globe, Award } from 'lucide-react';
+import IconWhite from '../assets/Icon_White.png';
 
 const About: React.FC = () => {
   const values = [
@@ -35,9 +36,12 @@ const About: React.FC = () => {
   return (
     <div className="py-8">
       {/* Header */}
-      <div className="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-16">
+      <div className="text-white py-16" style={{ backgroundColor: '#3333ff' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-display font-bold mb-4">About Sounds of Morocco</h1>
+          <h1 className="text-4xl font-display font-bold mb-4 flex items-center justify-center gap-4">
+            <img src={IconWhite} alt="About Icon" className="h-10 w-10 inline-block" />
+            About Sounds of Morocco
+          </h1>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto">
             Dedicated to preserving, documenting, and celebrating the rich musical heritage of Morocco 
             for current and future generations.
